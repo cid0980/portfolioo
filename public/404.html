@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>asen/dev</title>
+    <script>
+      /* Static hosts (GitHub Pages etc.) 404 on client-side paths like
+         /admin because no physical file exists there. Re-route the path
+         to the hash form the SPA understands, then get out of the way. */
+      (function () {
+        var path = window.location.pathname.replace(/\/+$/, '')
+        var m = path.match(/\/admin$/i)
+
+        if (m) {
+          /* /portfolioo/admin → /portfolioo/#admin */
+          window.location.replace(path.slice(0, m.index) + '/#admin')
+          return
+        }
+
+        /* Unknown path — send to the site root (which exists, no loop) */
+        var first = window.location.pathname.split('/').filter(Boolean)[0]
+        var home = '/' + (first ? first + '/' : '')
+        if (home === window.location.pathname) return
+        window.location.replace(home)
+      })()
+    </script>
+  </head>
+  <body></body>
+</html>

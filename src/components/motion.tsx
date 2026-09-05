@@ -82,7 +82,7 @@ function RollTitle({
         >
           <span className="roll-word inline-block will-change-transform">
             {word}
-            {i < words.length - 1 ? '\u00A0' : ''}
+            {i < words.length - 1 ? ' ' : ''}
           </span>
         </span>
       ))}

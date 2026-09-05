@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# TODO: replace the domain below with your final deployed URL if it differs
+Sitemap: https://cid0980.github.io/portfolioo/sitemap.xml

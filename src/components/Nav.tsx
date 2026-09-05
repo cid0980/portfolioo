@@ -7,7 +7,8 @@ import {
 } from 'framer-motion'
 import { ArrowUpRight, Menu, X } from 'lucide-react'
 import { EASE } from './motion'
-import { GitHubIcon } from './icons'
+import { GitHubIcon, InstagramIcon, LinkedInIcon } from './icons'
+import { GITHUB_URL, INSTAGRAM_URL, LINKEDIN_URL, EMAIL } from '../data/socials'
 import GlitchName from './GlitchName'
 
 const LINKS = [
@@ -17,13 +18,17 @@ const LINKS = [
   { id: '#contact', label: 'Contact' },
 ]
 
+/* distance from the top below which the whole app bar stays hidden */
+const TOP_HIDE = 12
+
 export default function Nav({
   onNavigate,
 }: {
   onNavigate: (id: string) => void
 }) {
   const [scrolled, setScrolled] = useState(false)
-  const [hidden, setHidden] = useState(false)
+  /* starts hidden — the page loads at the top */
+  const [hidden, setHidden] = useState(true)
   const [open, setOpen] = useState(false)
   const [active, setActive] = useState('')
 
@@ -35,12 +40,11 @@ export default function Nav({
   })
 
   useEffect(() => {
-    let lastY = window.scrollY
     const onScroll = () => {
       const y = window.scrollY
       setScrolled(y > 24)
-      setHidden(y > lastY && y > 180)
-      lastY = y
+      /* hidden only at the very top — always visible while scrolling */
+      setHidden(y <= TOP_HIDE)
     }
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
@@ -79,7 +83,7 @@ export default function Nav({
   return (
     <>
       <motion.header
-        initial={{ y: -80, opacity: 0 }}
+        initial={{ y: -90, opacity: 0 }}
         animate={{ y: hidden && !open ? -90 : 0, opacity: 1 }}
         transition={{ duration: 0.45, ease: EASE }}
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
@@ -118,13 +122,31 @@ export default function Nav({
 
           <div className="hidden items-center gap-3 lg:flex">
             <a
-              href="https://github.com/cid0980"
+              href={GITHUB_URL}
               target="_blank"
               rel="noreferrer"
               className="icon-btn"
               aria-label="GitHub profile"
             >
               <GitHubIcon size={17} />
+            </a>
+            <a
+              href={LINKEDIN_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="icon-btn"
+              aria-label="LinkedIn profile"
+            >
+              <LinkedInIcon size={17} />
+            </a>
+            <a
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="icon-btn"
+              aria-label="Instagram profile"
+            >
+              <InstagramIcon size={17} />
             </a>
             <button
               onClick={() => go('#contact')}
@@ -192,21 +214,41 @@ export default function Nav({
               <div>
                 <p className="mono-label">Get in touch</p>
                 <a
-                  href="mailto:asencid07@gmail.com"
+                  href={`mailto:${EMAIL}`}
                   className="mt-2 block font-display text-lg text-cream"
                 >
-                  asencid07@gmail.com
+                  {EMAIL}
                 </a>
               </div>
-              <a
-                href="https://github.com/cid0980"
-                target="_blank"
-                rel="noreferrer"
-                className="icon-btn"
-                aria-label="GitHub profile"
-              >
-                <GitHubIcon size={18} />
-              </a>
+              <div className="flex items-center gap-2.5">
+                <a
+                  href={GITHUB_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="icon-btn"
+                  aria-label="GitHub profile"
+                >
+                  <GitHubIcon size={18} />
+                </a>
+                <a
+                  href={LINKEDIN_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="icon-btn"
+                  aria-label="LinkedIn profile"
+                >
+                  <LinkedInIcon size={18} />
+                </a>
+                <a
+                  href={INSTAGRAM_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="icon-btn"
+                  aria-label="Instagram profile"
+                >
+                  <InstagramIcon size={18} />
+                </a>
+              </div>
             </motion.div>
           </motion.div>
         )}

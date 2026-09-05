@@ -2,6 +2,7 @@ import { useRef, type ReactNode } from 'react'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 import { ArrowUpRight, Check } from 'lucide-react'
 import { Reveal, SectionHead } from './motion'
+import { GITHUB_REPOS_URL } from '../data/socials'
 
 const PROJECTS = [
   {
@@ -17,7 +18,7 @@ const PROJECTS = [
       'Cart with state management',
     ],
     stack: ['Flutter', 'Dart', 'State Management'],
-    image: '/images/projects/comicverse.jpg',
+    image: 'images/projects/comicverse.jpg',
   },
   {
     index: '02',
@@ -31,7 +32,7 @@ const PROJECTS = [
       'Centralized Firebase database',
     ],
     stack: ['Firebase', 'Role-Based Auth', 'Real-time DB'],
-    image: '/images/projects/bluemark.jpg',
+    image: 'images/projects/bluemark.jpg',
   },
   {
     index: '03',
@@ -45,7 +46,7 @@ const PROJECTS = [
       'Profile and bio management',
     ],
     stack: ['Flutter', 'Firebase', 'Google Auth'],
-    image: '/images/projects/tuno.jpg',
+    image: 'images/projects/tuno.jpg',
   },
   {
     index: '04',
@@ -59,7 +60,7 @@ const PROJECTS = [
       'Full order lifecycle tracking',
     ],
     stack: ['Node.js', 'Express', 'MongoDB', 'React', 'JWT'],
-    image: '/images/projects/foodverse.jpg',
+    image: 'images/projects/foodverse.jpg',
   },
   {
     index: '05',
@@ -73,7 +74,7 @@ const PROJECTS = [
       'Fast, keyboard-first gameplay',
     ],
     stack: ['React', 'TypeScript', 'Vite'],
-    image: '/images/projects/pixeldodge.jpg',
+    image: 'images/projects/pixeldodge.jpg',
   },
   {
     index: '06',
@@ -87,7 +88,7 @@ const PROJECTS = [
       'Trained and evaluated ML model',
     ],
     stack: ['Python', 'Machine Learning', 'Data Analysis'],
-    image: '/images/projects/cropyield.jpg',
+    image: 'images/projects/cropyield.jpg',
   },
 ]
 
@@ -144,7 +145,7 @@ export default function Projects() {
             <Reveal key={p.title} delay={0.05 * (i % 2)} className="h-full">
               <Tilt>
                 <a
-                  href="https://github.com/cid0980?tab=repositories"
+                  href={GITHUB_REPOS_URL}
                   target="_blank"
                   rel="noreferrer"
                   aria-label={`${p.title} — view code on GitHub`}

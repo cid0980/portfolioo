@@ -8,7 +8,8 @@ import { motion } from 'framer-motion'
 import { ArrowDown, ArrowUpRight, Mail } from 'lucide-react'
 import Scene3D from './Scene3D'
 import { Magnetic } from './motion'
-import { GitHubIcon } from './icons'
+import { GitHubIcon, InstagramIcon, LinkedInIcon } from './icons'
+import { EMAIL, GITHUB_URL, INSTAGRAM_URL, LINKEDIN_URL } from '../data/socials'
 
 gsap.registerPlugin(useGSAP, ScrollTrigger)
 
@@ -184,7 +185,7 @@ export default function Hero({
             </Magnetic>
             <div className="flex items-center gap-2.5">
               <a
-                href="https://github.com/cid0980"
+                href={GITHUB_URL}
                 target="_blank"
                 rel="noreferrer"
                 className="icon-btn"
@@ -193,7 +194,25 @@ export default function Hero({
                 <GitHubIcon size={17} />
               </a>
               <a
-                href="mailto:asencid07@gmail.com"
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="icon-btn"
+                aria-label="LinkedIn profile"
+              >
+                <LinkedInIcon size={17} />
+              </a>
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="icon-btn"
+                aria-label="Instagram profile"
+              >
+                <InstagramIcon size={17} />
+              </a>
+              <a
+                href={`mailto:${EMAIL}`}
                 className="icon-btn"
                 aria-label="Send email"
               >

@@ -70,22 +70,20 @@ export default function About() {
                     </p>
                   </motion.div>
                 ))}
-                <motion.div variants={staggerItem} className="flex items-center gap-1.5 pt-1">
+                <motion.div
+                  variants={staggerItem}
+                  className="flex items-center gap-1.5 pt-1"
+                >
                   <span className="text-[#a3a8ff]">$</span>
                   <motion.span
                     animate={{ opacity: [1, 0, 1] }}
-                    transition={{
-                      duration: 1.1,
-                      repeat: Infinity,
-                      ease: 'linear',
-                    }}
+                    transition={{ duration: 1.1, repeat: Infinity, ease: 'linear' }}
                     className="inline-block h-4 w-2 bg-[#a3a8ff]"
                     aria-hidden
                   />
                 </motion.div>
               </motion.div>
             </div>
-
             <div className="mt-5 flex flex-wrap gap-2.5">
               {VALUES.map((v) => (
                 <span key={v} className="chip">
@@ -95,7 +93,6 @@ export default function About() {
             </div>
           </Reveal>
 
-          {/* copy + timeline */}
           <div className="lg:col-span-7">
             <Reveal delay={0.1}>
               <p className="text-lg leading-relaxed text-cream/90">

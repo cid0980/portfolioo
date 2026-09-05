@@ -112,18 +112,15 @@ function SkillCard({
       whileHover={{ y: -5 }}
       className="group relative h-full overflow-hidden rounded-2xl border border-cream/10 bg-surface p-6 shadow-[0_2px_20px_-14px_rgba(23,23,29,0.14)] transition-colors duration-300 hover:border-lime/40 hover:shadow-[0_26px_50px_-24px_rgba(75,70,229,0.3)]"
     >
-      {/* cursor spotlight */}
       <motion.div
         aria-hidden
         className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
         style={{ background: spotlight }}
       />
-      {/* shine sweep */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-lime/[0.07] to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full"
       />
-
       <div className="relative">
         <div className="flex items-center gap-3.5">
           <motion.span
@@ -140,7 +137,6 @@ function SkillCard({
             0{index + 1}
           </span>
         </div>
-
         <motion.div variants={chips} className="mt-5 flex flex-wrap gap-2">
           {skill.items.map((item) => (
             <motion.span key={item} variants={chip} className="chip">
@@ -170,7 +166,6 @@ export default function Skills() {
           title="The toolbox — never the limit."
           description="What I reach for day to day. Every project above taught me something new, and the next one will too."
         />
-
         <motion.div
           variants={grid}
           initial="hidden"

@@ -71,7 +71,7 @@ export default function Statement() {
   const ref = useRef<HTMLParagraphElement>(null)
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ['start 0.85', 'end 0.45'] as never,
+    offset: ['start 0.85', 'end 0.45'],
   })
 
   return (
